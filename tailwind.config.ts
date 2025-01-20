@@ -13,6 +13,24 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        // Base colors
+        white: "hsla(0, 0%, 100%, 1)",
+        black: "hsla(0, 0%, 0%, 1)",
+
+        // Grays
+        "gray-medium": "hsla(0, 0%, 23%, 1)",
+        "gray-dark": "hsla(0, 0%, 25%, 1)",
+        "gray-light": "hsla(252, 5%, 36%, 1)",
+        "neutral-500": "hsla(0, 0%, 45%, 1)",
+
+        // Text
+        "text-primary": "hsla(0, 0%, 23%, 1)",
+
+        // Strokes
+        "stroke-primary": "hsla(0, 0%, 23%, 1)",
+        "stroke-secondary": "hsla(0, 0%, 56%, 1)",
+      },
     },
   },
   plugins: [],
