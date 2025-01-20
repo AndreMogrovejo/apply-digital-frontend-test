@@ -30,6 +30,9 @@ const config: Config = {
         // Strokes
         "stroke-primary": "hsla(0, 0%, 23%, 1)",
         "stroke-secondary": "hsla(0, 0%, 56%, 1)",
+
+        // Surfaces
+        "surface-secondary": "hsla(0, 0%, 93%, 1)",
       },
     },
   },
