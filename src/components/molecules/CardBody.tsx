@@ -10,11 +10,11 @@ interface CardBodyProps {
 const CardBody: React.FC<CardBodyProps> = (props) => {
   const { genre, productName, price } = props;
   return (
-    <div className="flex flex-col justify-between mt-2">
+    <div className="flex flex-col justify-between">
       <Text className="text-neutral-500 text-base font-bold">
         {genre.toUpperCase()}
       </Text>
-      <div className="flex justify-between items-center mt-2">
+      <div className="flex justify-between items-center">
         <Text className="text-lg font-bold text-text-primary">
           {productName}
         </Text>

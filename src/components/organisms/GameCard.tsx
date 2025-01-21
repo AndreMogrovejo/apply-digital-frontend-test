@@ -6,6 +6,7 @@ import CardBody from "../molecules/CardBody";
 import Button from "../atoms/Button";
 
 interface GameCardProps {
+  id: string;
   imageSrc: string;
   alt: string;
   isNew?: boolean;
@@ -15,9 +16,9 @@ interface GameCardProps {
 }
 
 const GameCard: React.FC<GameCardProps> = (props) => {
-  const { imageSrc, alt, isNew, genre, productName, price } = props;
+  const { imageSrc, alt, isNew, genre, productName, price, id } = props;
   return (
-    <div className="border rounded-2xl shadow-md overflow-hidden w-[380px] h-[436px] p-6">
+    <div className="border rounded-2xl shadow-md overflow-hidden w-[380px] h-[436px] p-6 flex flex-col justify-between">
       <CardHeader imageSrc={imageSrc} alt={alt} isNew={isNew} />
       <CardBody genre={genre} productName={productName} price={price} />
       <Button text="ADD TO CART" type="secondary" onClick={() => {}} />

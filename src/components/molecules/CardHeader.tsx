@@ -20,7 +20,7 @@ const CardHeader: React.FC<CardHeaderProps> = (props) => {
         alt={alt}
         width={imageWidth}
         height={imageHeight}
-        className={`rounded-t-2xl max-h-[${imageHeight}px] object-cover`}
+        className={`rounded-t-2xl max-h-[240px] object-cover`}
       />
       {isNew ? <SpanTag className="absolute top-2 left-2">New</SpanTag> : null}
     </div>
