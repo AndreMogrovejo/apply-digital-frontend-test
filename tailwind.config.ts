@@ -23,6 +23,7 @@ const config: Config = {
         "gray-dark": "hsla(0, 0%, 25%, 1)",
         "gray-light": "hsla(252, 5%, 36%, 1)",
         "neutral-500": "hsla(0, 0%, 45%, 1)",
+        "stone-100": "hsla(60, 5%, 96%, 1)",
 
         // Text
         "text-primary": "hsla(0, 0%, 23%, 1)",

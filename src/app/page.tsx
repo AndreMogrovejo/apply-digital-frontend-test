@@ -2,7 +2,7 @@ import GameCard from "@/components/organisms/GameCard";
 import { Game } from "@/utils/endpoint";
 
 export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/games`, {
+  const res = await fetch(`http://localhost:3000/api/games`, {
     next: { revalidate: 0 }, // Ensures data is fetched fresh every time
   });
 

@@ -17,12 +17,10 @@ interface GameCardProps {
 const GameCard: React.FC<GameCardProps> = (props) => {
   const { imageSrc, alt, isNew, genre, productName, price } = props;
   return (
-    <div className="border rounded-md shadow-md overflow-hidden">
+    <div className="border rounded-2xl shadow-md overflow-hidden w-[380px] h-[436px] p-6">
       <CardHeader imageSrc={imageSrc} alt={alt} isNew={isNew} />
       <CardBody genre={genre} productName={productName} price={price} />
-      <div className="p-4">
-        <Button label="ADD TO CART" onClick={() => {}} />
-      </div>
+      <Button text="ADD TO CART" type="secondary" onClick={() => {}} />
     </div>
   );
 };

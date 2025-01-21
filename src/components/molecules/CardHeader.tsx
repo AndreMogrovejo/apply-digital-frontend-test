@@ -1,29 +1,28 @@
 import React from "react";
-import Text from "../atoms/Text";
 import Image from "../atoms/Image";
+import SpanTag from "../atoms/SpanTag";
 
 interface CardHeaderProps {
   imageSrc: string;
   alt: string;
   isNew?: boolean;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const CardHeader: React.FC<CardHeaderProps> = (props) => {
-  const { imageSrc, alt, isNew } = props;
+  const { imageSrc, alt, isNew = false } = props;
+  const { imageWidth = 332, imageHeight = 240 } = props;
   return (
     <div className="relative">
       <Image
         src={imageSrc}
         alt={alt}
-        width={400}
-        height={225}
-        className="w-full h-40 object-cover rounded-t-md"
+        width={imageWidth}
+        height={imageHeight}
+        className={`rounded-t-2xl max-h-[${imageHeight}px] object-cover`}
       />
-      {isNew && (
-        <Text className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 text-xs rounded">
-          New
-        </Text>
-      )}
+      {isNew ? <SpanTag className="absolute top-2 left-2">New</SpanTag> : null}
     </div>
   );
 };
