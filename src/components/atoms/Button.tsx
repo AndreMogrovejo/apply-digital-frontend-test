@@ -12,40 +12,31 @@ interface ButtonProps {
 }
 
 // Helper function to generate button class names
-const getButtonClassNames = (
+export const getButtonClassNames = (
   type: "primary" | "secondary",
   isLoading: boolean,
   isDisabled: boolean
-) => {
-  // Base classes that are shared across all states
+): string => {
   const baseClasses =
-    "flex items-center justify-center gap-2 w-[332px] h-[56px] py-[var(--Spacing4)] px-[var(--Spacing6)] rounded-lg border-[1px]";
+    "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary";
 
-  // Conditional classes based on state
-  let conditionalClasses = "";
+  const stateClasses = isLoading
+    ? "cursor-wait opacity-60"
+    : isDisabled
+    ? "cursor-not-allowed opacity-60"
+    : type === "primary"
+    ? "bg-gray-light hover:bg-gray-dark"
+    : "hover:bg-stone-100";
 
-  if (isLoading) {
-    conditionalClasses = "bg-blue-400 text-white cursor-wait opacity-50"; // Loading state
-  } else if (isDisabled) {
-    conditionalClasses =
-      "bg-gray-400 text-gray-500 border-gray-400 cursor-not-allowed opacity-50"; // Disabled state
-  } else {
-    if (type === "primary") {
-      conditionalClasses =
-        "bg-blue-500 text-white border-blue-500 hover:bg-blue-600"; // Primary state
-    } else {
-      conditionalClasses = "text-gray-600 border-gray-300 hover:bg-gray-300"; // Secondary state
-    }
-  }
-
-  // Return the combined class string
-  return `${baseClasses} ${conditionalClasses}`;
+  return `${baseClasses} ${stateClasses}`;
 };
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { text, onClick, type = "primary", isLoading = false } = props;
   const { isDisabled = false, iconLeft, iconRight } = props;
   const buttonClassNames = getButtonClassNames(type, isLoading, isDisabled);
+  const textColorClass =
+    type === "primary" ? "text-white" : "text-text-primary";
 
   return (
     <button
@@ -53,15 +44,11 @@ const Button: React.FC<ButtonProps> = (props) => {
       onClick={!isDisabled && !isLoading ? onClick : undefined}
       disabled={isDisabled || isLoading}
     >
-      {isLoading ? (
-        <span>Loading...</span> // Placeholder for a loading spinner
-      ) : (
-        <>
-          {iconLeft && <span className="flex items-center">{iconLeft}</span>}
-          <span>{text}</span>
-          {iconRight && <span className="flex items-center">{iconRight}</span>}
-        </>
-      )}
+      {iconLeft && <span className="flex items-center">{iconLeft}</span>}
+      <span className={`text-center font-bold text-base ${textColorClass}`}>
+        {isLoading ? "Loading..." : text}
+      </span>
+      {iconRight && <span className="flex items-center">{iconRight}</span>}
     </button>
   );
 };
