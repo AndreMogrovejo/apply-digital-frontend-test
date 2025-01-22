@@ -9,6 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
+  className?: string;
 }
 
 // Helper function to generate button class names
@@ -33,14 +34,14 @@ export const getButtonClassNames = (
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { text, onClick, type = "primary", isLoading = false } = props;
-  const { isDisabled = false, iconLeft, iconRight } = props;
+  const { isDisabled = false, iconLeft, iconRight, className } = props;
   const buttonClassNames = getButtonClassNames(type, isLoading, isDisabled);
   const textColorClass =
     type === "primary" ? "text-white" : "text-text-primary";
 
   return (
     <button
-      className={buttonClassNames}
+      className={`${buttonClassNames} ${className}`}
       onClick={!isDisabled && !isLoading ? onClick : undefined}
       disabled={isDisabled || isLoading}
     >
