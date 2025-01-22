@@ -23,7 +23,7 @@ export default async function Home() {
       <Navbar availableFilters={availableFilters} />
       <div className="my-8 flex flex-col gap-8">
         <GameList games={games} />
-        <Button text="SEE MORE" className="w-[140px] h-[56px] self-start" />
+        <Button text="SEE MORE" className="max-w-[140px] h-[56px] self-start" />
       </div>
     </main>
   );
