@@ -1,27 +1,26 @@
 export const dynamic = "force-dynamic";
-import { Game } from "@/utils/endpoint";
 import GameList from "@/components/organisms/GameList";
 import Navbar from "@/components/organisms/Navbar";
 import Button from "@/components/atoms/Button";
+import { fetchGameService } from "@/services/gameServices";
 
-interface GameServiceResponse {
-  games: Game[];
-  availableFilters: string[];
-  totalPages: number;
-  currentPage: number;
+interface GameServiceParams {
+  genre?: string;
+  page?: string;
 }
 
-export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/games`, {
-    next: { revalidate: 0 },
-  });
-  const data: GameServiceResponse = await res.json();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: GameServiceParams;
+}) {
+  const data = await fetchGameService(searchParams.genre, searchParams.page);
   const { games, availableFilters, currentPage, totalPages } = data ?? {};
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Navbar availableFilters={availableFilters} />
-      <div className="my-8 flex flex-col gap-8">
+      <div className="my-12 flex flex-col gap-8">
         <GameList games={games} />
         <Button text="SEE MORE" className="max-w-[140px] h-[56px] self-start" />
       </div>

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Dropdown from "../atoms/Dropdown";
+import { useRouter } from "next/navigation";
 
 interface FiltersProps {
   availableFilters?: string[];
@@ -8,8 +9,14 @@ interface FiltersProps {
 
 const Filters: React.FC<FiltersProps> = (props) => {
   const { availableFilters = [] } = props;
+  const router = useRouter();
+
   const handleSelect = (option: string) => {
-    console.log("Selected:", option);
+    if (option === "All") {
+      router.push("/");
+      return;
+    }
+    router.push(`?genre=${option}`);
   };
 
   return (
