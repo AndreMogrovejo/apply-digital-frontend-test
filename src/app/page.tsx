@@ -3,6 +3,7 @@ import GameList from "@/components/organisms/GameList";
 import Navbar from "@/components/organisms/Navbar";
 import Button from "@/components/atoms/Button";
 import { fetchGameService } from "@/services/gameServices";
+import HomeButton from "@/components/molecules/HomeButton";
 
 interface GameServiceParams {
   genre?: string;
@@ -22,7 +23,7 @@ export default async function Home({
       <Navbar availableFilters={availableFilters} />
       <div className="my-12 flex flex-col gap-8">
         <GameList games={games} />
-        <Button text="SEE MORE" className="max-w-[140px] h-[56px] self-start" />
+        <HomeButton />
       </div>
     </main>
   );
