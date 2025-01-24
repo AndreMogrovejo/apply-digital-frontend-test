@@ -1,22 +1,22 @@
 import React from "react";
 import Image from "../atoms/Image";
 import SpanTag from "../atoms/SpanTag";
+import { Game } from "@/utils/endpoint";
 
-interface CardHeaderProps {
-  imageSrc: string;
+interface CardHeaderProps extends Pick<Game, "image" | "isNew"> {
   alt: string;
-  isNew?: boolean;
   imageWidth?: number;
   imageHeight?: number;
 }
 
 const CardHeader: React.FC<CardHeaderProps> = (props) => {
-  const { imageSrc, alt, isNew = false } = props;
+  const { image, alt, isNew = false } = props;
   const { imageWidth = 332, imageHeight = 240 } = props;
+
   return (
     <div className="relative">
       <Image
-        src={imageSrc}
+        src={image}
         alt={alt}
         width={imageWidth}
         height={imageHeight}

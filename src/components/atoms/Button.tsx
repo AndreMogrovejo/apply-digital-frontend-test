@@ -2,7 +2,8 @@
 import React from "react";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
   type?: "primary" | "secondary";
   isLoading?: boolean;
   isDisabled?: boolean;
@@ -35,6 +36,7 @@ export const getButtonClassNames = (
 const Button: React.FC<ButtonProps> = (props) => {
   const { text, onClick, type = "primary", isLoading = false } = props;
   const { isDisabled = false, iconLeft, iconRight, className } = props;
+  const { children } = props;
   const buttonClassNames = getButtonClassNames(type, isLoading, isDisabled);
   const textColorClass =
     type === "primary" ? "text-white" : "text-text-primary";
@@ -47,7 +49,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     >
       {iconLeft && <span className="flex items-center">{iconLeft}</span>}
       <span className={`text-center font-bold text-base ${textColorClass}`}>
-        {isLoading ? "Loading..." : text}
+        {isLoading ? "Loading..." : children ? children : text}
       </span>
       {iconRight && <span className="flex items-center">{iconRight}</span>}
     </button>

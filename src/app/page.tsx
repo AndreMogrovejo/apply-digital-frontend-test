@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 import GameList from "@/components/organisms/GameList";
 import Navbar from "@/components/organisms/Navbar";
-import Button from "@/components/atoms/Button";
 import { fetchGameService } from "@/services/gameServices";
 import HomeButton from "@/components/molecules/HomeButton";
 
@@ -20,11 +19,15 @@ export default async function Home({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Navbar availableFilters={availableFilters} />
-      <div className="my-12 flex flex-col gap-8">
+      <Navbar
+        availableFilters={availableFilters}
+        showFilters
+        title="Top Sellers"
+      />
+      <section className="my-12 flex flex-col gap-8">
         <GameList games={games} />
         <HomeButton />
-      </div>
+      </section>
     </main>
   );
 }
