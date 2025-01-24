@@ -25,7 +25,7 @@ const HomeButton: React.FC<HomeButtonProps> = (props) => {
   return (
     <Button
       text="SEE MORE"
-      className="max-w-[140px] h-[56px] self-start"
+      className="w-full sm:max-w-[140px] h-[56px] self-start"
       onClick={handleClick}
     />
   );

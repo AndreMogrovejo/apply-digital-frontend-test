@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "../atoms/Image";
-import SpanTag from "../atoms/SpanTag";
+import SpanTag from "../../atoms/SpanTag";
 import { Game } from "@/utils/endpoint";
+import Image from "next/image";
 
 interface CardHeaderProps extends Pick<Game, "image" | "isNew"> {
   alt: string;
@@ -21,6 +21,7 @@ const CardHeader: React.FC<CardHeaderProps> = (props) => {
         width={imageWidth}
         height={imageHeight}
         className={`rounded-t-2xl max-h-[240px] object-cover`}
+        priority
       />
       {isNew ? <SpanTag className="absolute top-2 left-2">New</SpanTag> : null}
     </div>

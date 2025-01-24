@@ -23,7 +23,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <Toast text="Test" type="success" />
       </body>
     </html>
   );

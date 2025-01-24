@@ -1,4 +1,4 @@
-import { GameListSkeleton } from "@/components/organisms/GameListSkeleton";
+import { GameListSkeleton } from "@/components/molecules/GameListSkeleton";
 import Navbar from "@/components/organisms/Navbar";
 import React from "react";
 

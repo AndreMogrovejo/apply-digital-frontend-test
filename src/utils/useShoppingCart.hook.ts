@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Game } from "./endpoint";
 
-interface ShoppingCartGame extends Game {
+export interface ShoppingCartGame extends Game {
   quantity: number;
 }
 
@@ -29,6 +29,7 @@ export const useShoppingCart = () => {
     });
   };
 
+  // Check if game is in cart
   const isGameInCart = (id: Game["id"]) => {
     return cart.some((item) => item.id === id);
   };
@@ -36,6 +37,11 @@ export const useShoppingCart = () => {
   // Remove item from cart
   const removeItem = (id: Game["id"]) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
+  // Get items price from cart
+  const getItemsPrice = () => {
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
 
   // Clear cart
@@ -49,5 +55,6 @@ export const useShoppingCart = () => {
     removeItem,
     clearCart,
     isGameInCart,
+    getItemsPrice,
   };
 };
