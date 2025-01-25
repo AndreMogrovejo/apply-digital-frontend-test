@@ -20,10 +20,12 @@ export const getButtonClassNames = (
   isDisabled: boolean
 ): string => {
   const baseClasses =
-    "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary";
+    "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary transition";
 
   const stateClasses = isLoading
-    ? "cursor-wait opacity-60"
+    ? `cursor-wait opacity-60 ${
+        type === "primary" ? "bg-gray-light" : "bg-white"
+      }`
     : isDisabled
     ? "cursor-not-allowed opacity-60"
     : type === "primary"

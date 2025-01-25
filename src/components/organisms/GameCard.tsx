@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useShoppingCart } from "@/utils/useShoppingCart.hook";
+import React from "react";
 
 import CardHeader from "../molecules/GameCard/CardHeader";
 import CardBody from "../molecules/GameCard/CardBody";
@@ -11,26 +10,14 @@ import { Game } from "@/utils/endpoint";
 
 interface GameCardProps {
   game: Game;
+  isGameInCart: boolean;
+  onClick: (game: Game) => void;
+  isLoading: boolean;
 }
 
 const GameCard: React.FC<GameCardProps> = (props) => {
-  const { game } = props;
+  const { game, isGameInCart, onClick, isLoading } = props;
   const { image, isNew, genre, name, price, id } = game;
-
-  const { removeItem, addItem, isGameInCart } = useShoppingCart();
-  const [isGameAdded, setIsGameAdded] = useState(false);
-
-  useEffect(() => {
-    setIsGameAdded(isGameInCart(id)); // Update state after hydration
-  }, [id, isGameInCart]);
-
-  const handleOnClick = () => {
-    if (isGameAdded) {
-      removeItem(id);
-      return;
-    }
-    addItem(game);
-  };
 
   return (
     <div
@@ -40,9 +27,10 @@ const GameCard: React.FC<GameCardProps> = (props) => {
       <CardHeader image={image} alt={name} isNew={isNew} />
       <CardBody genre={genre} name={name} price={price} />
       <Button
-        text={isGameAdded ? "Remove from Cart" : "Add to Cart"}
-        type="secondary"
-        onClick={handleOnClick}
+        text={isGameInCart ? "Remove from Cart" : "Add to Cart"}
+        type={isGameInCart ? "primary" : "secondary"}
+        onClick={() => onClick(game)}
+        isLoading={isLoading}
       />
     </div>
   );

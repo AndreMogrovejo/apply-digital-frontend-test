@@ -19,19 +19,19 @@ The "See more" functionality should be implemented using the “page” URL para
 
 ### General
 
-- Games added to the cart should persist on local storage.
+- Games added to the cart should persist on local storage. ✅
 - Deployment of the web app on Vercel from your own GitHub repository. ✅
-- The web app must have a responsive design.
+- The web app must have a responsive design. ✅
 - Implement unit testing.
 - Do not use any 3rd party components like Material-ui, Shadcn-ui, etc. Use the TailwindCSS config file for colors, etc. ✅
 - In the footer, the Apply Digital logo should redirect you to the route "/". ✅
-- The header should only have two navigation elements, a logo that redirects you to "/" and a cart icon to "/cart"
+- The header should only have two navigation elements, a logo that redirects you to "/" and a cart icon to "/cart" ✅
 
 ### Catalog Page
 
 - The page must have a loading indicator. ✅
 - The selected "genre" filter should persist on the url and be used when querying the results if the page is visited for the first time using these parameters. ✅
-- When clicking on the "Add To Cart" button, the game has to be added to the Cart.
+- When clicking on the "Add To Cart" button, the game has to be added to the Cart. ✅
 - If the item is added to cart, the button should say "Remove" and if clicked it should remove the item from the cart.
 - ¨See more¨ button must be implemented. ✅
 - The "genre" filter selector can be implemented using the native select element. It doesn’t need to be complex. ✅
@@ -39,9 +39,9 @@ The "See more" functionality should be implemented using the “page” URL para
 ### Cart Page
 
 - It should display every item added to the cart, including `name`, `description`, `price`, `image`, `genre`, and display the "New" label using the `isNew` attribute.
-- The "X" button on each item should remove it from the cart.
-- The Order Summary section should display the items quantity, each item's price and the order total.
-- It should display a "Back to Catalog" button that takes back to "/"
+- The "X" button on each item should remove it from the cart. ✅
+- The Order Summary section should display the items quantity, each item's price and the order total. ✅
+- It should display a "Back to Catalog" button that takes back to "/" ✅
 
 ## WHAT WILL BE EVALUATED?
 

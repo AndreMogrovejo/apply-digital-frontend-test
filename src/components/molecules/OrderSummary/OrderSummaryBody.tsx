@@ -1,4 +1,4 @@
-import { ShoppingCartGame } from "@/utils/useShoppingCart.hook";
+import { ShoppingCartGame } from "@/utils/useShoppingCart";
 import React from "react";
 
 interface OrderSummaryBodyProps {

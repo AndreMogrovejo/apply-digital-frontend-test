@@ -1,23 +1,19 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useShoppingCart } from "@/utils/useShoppingCart.hook";
-import { ShoppingCartGame } from "@/utils/useShoppingCart.hook";
+import React, { useMemo } from "react";
+import { useShoppingCart } from "@/utils/useShoppingCart";
 import ShoppingGameCard from "./ShoppingGameCard";
-import { Game } from "@/utils/endpoint";
+import ShoppingGameEmptyState from "../molecules/ShoppingGameCard/ShoppingGameEmptyState";
 
-interface ShoppingCartGameListProps {}
-
-const ShoppingCartGameList: React.FC<ShoppingCartGameListProps> = () => {
+const ShoppingCartGameList: React.FC = () => {
   const { cart } = useShoppingCart();
-  const [cartList, setCartList] = useState<ShoppingCartGame[]>([]);
 
-  useEffect(() => {
-    setCartList(cart);
-  }, [cart]);
+  // Memoize the cart list to avoid unnecessary re-renders
+  const filteredCart = useMemo(() => cart, [cart]);
 
   return (
-    <section className="flex flex-col gap-8 pb-6">
-      {cartList?.map((game: Game) => (
+    <section className="flex flex-col gap-8 pb-6 w-auto sm:min-w-[678px]">
+      {filteredCart.length === 0 ? <ShoppingGameEmptyState /> : null}
+      {filteredCart.map((game) => (
         <ShoppingGameCard key={game.id} game={game} />
       ))}
     </section>
