@@ -27,7 +27,7 @@ const GameCard: React.FC<GameCardProps> = (props) => {
       <CardHeader image={image} alt={name} isNew={isNew} />
       <CardBody genre={genre} name={name} price={price} />
       <Button
-        text={isGameInCart ? "Remove from Cart" : "Add to Cart"}
+        text={isGameInCart ? "Remove" : "Add to Cart"}
         type={isGameInCart ? "primary" : "secondary"}
         onClick={() => onClick(game)}
         isLoading={isLoading}

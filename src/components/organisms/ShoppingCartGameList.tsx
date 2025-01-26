@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { useShoppingCart } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
 import ShoppingGameCard from "./ShoppingGameCard";
 import ShoppingGameEmptyState from "../molecules/ShoppingGameCard/ShoppingGameEmptyState";
 

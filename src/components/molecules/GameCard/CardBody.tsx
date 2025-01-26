@@ -1,5 +1,4 @@
 import React from "react";
-import Text from "../../atoms/Text";
 import { Game } from "@/utils/endpoint";
 
 interface CardBodyProps extends Pick<Game, "genre" | "name" | "price"> {}

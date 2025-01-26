@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import CrossSVG from "images/crossIcon.svg";
 import { Game } from "@/utils/endpoint";
-import { useShoppingCart } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
 import SpanTag from "@/components/atoms/SpanTag";
 
 interface ShoppingGameCardHeaderProps {

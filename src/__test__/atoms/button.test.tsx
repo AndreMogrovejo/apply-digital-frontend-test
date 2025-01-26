@@ -1,6 +1,5 @@
 import Button, { getButtonClassNames } from "@/components/atoms/Button";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
 
 describe("Button Component", () => {
   it("renders the button with default props", () => {
@@ -37,7 +36,7 @@ describe("Button Component", () => {
   });
 
   it("triggers `onClick` when clicked", () => {
-    const handleClick = vi.fn();
+    const handleClick = jest.fn();
     render(<Button text="click button" onClick={handleClick} />);
     const button = screen.getByRole("button", { name: /click button/i });
     fireEvent.click(button);
@@ -45,7 +44,7 @@ describe("Button Component", () => {
   });
 
   it("does not trigger `onClick` when disabled", () => {
-    const handleClick = vi.fn();
+    const handleClick = jest.fn();
     render(
       <Button text="click button disabled" isDisabled onClick={handleClick} />
     );
@@ -93,7 +92,7 @@ describe("getButtonClassNames", () => {
     const result = getButtonClassNames("primary", false, false);
 
     expect(result).toBe(
-      "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary bg-gray-light hover:bg-gray-dark"
+      "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary transition bg-gray-light hover:bg-gray-dark"
     );
   });
 
@@ -102,7 +101,7 @@ describe("getButtonClassNames", () => {
     const result = getButtonClassNames(undefined as any, false, false);
 
     expect(result).toBe(
-      "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary hover:bg-stone-100"
+      "flex items-center justify-center gap-2 w-full h-[56px] rounded-lg border-[1px] border-stroke-primary transition hover:bg-stone-100"
     );
   });
 });

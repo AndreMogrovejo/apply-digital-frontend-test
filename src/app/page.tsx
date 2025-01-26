@@ -26,7 +26,7 @@ export default async function Home({
       />
       <section className="my-12 flex flex-col gap-8">
         <GameList games={games} />
-        <HomeButton />
+        <HomeButton currentPage={currentPage} totalPages={totalPages} />
       </section>
     </main>
   );

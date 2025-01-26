@@ -1,6 +1,6 @@
 "use client";
-import { useShoppingCart } from "@/utils/useShoppingCart";
-import { ShoppingCartGame } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
+import { ShoppingCartGame } from "@/utils/contexts/useShoppingCart";
 import React, { useEffect, useState } from "react";
 
 interface OrderSummaryHeaderProps {

@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { createContext, useCallback } from "react";
-import { Game } from "./endpoint";
+import { Game } from "../endpoint";
 
 export interface ShoppingCartGame extends Game {
   quantity: number;

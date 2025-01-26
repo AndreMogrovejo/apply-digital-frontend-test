@@ -2,7 +2,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { Game } from "@/utils/endpoint";
 import dynamic from "next/dynamic";
-import { useShoppingCart } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
 
 const GameCard = dynamic(() => import("./GameCard"), { ssr: false });
 

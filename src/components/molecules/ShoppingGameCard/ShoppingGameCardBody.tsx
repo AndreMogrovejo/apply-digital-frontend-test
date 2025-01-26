@@ -1,7 +1,7 @@
 import React from "react";
 import CrossSVG from "images/crossIcon.svg";
 import { Game } from "@/utils/endpoint";
-import { useShoppingCart } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
 
 interface ShoppingGameCardBodyProps {
   game: Game;

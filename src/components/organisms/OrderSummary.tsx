@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useShoppingCart } from "@/utils/useShoppingCart";
-import { ShoppingCartGame } from "@/utils/useShoppingCart";
+import { useShoppingCart } from "@/utils/contexts/useShoppingCart";
+import { ShoppingCartGame } from "@/utils/contexts/useShoppingCart";
 import OrderSummaryHeader from "../molecules/OrderSummary/OrderSummaryHeader";
 import OrderSummaryBody from "../molecules/OrderSummary/OrderSummaryBody";
 import OrderSummaryTotal from "../molecules/OrderSummary/OrderSummaryTotal";
