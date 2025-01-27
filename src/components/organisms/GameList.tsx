@@ -50,6 +50,7 @@ const GameList: React.FC<GameListProps> = (props) => {
           onClick={handleOnClick}
           isLoading={loadingId === game.id}
           isGameInCart={gamesInCart[game.id]}
+          aria-busy={loadingId === game.id}
         />
       ))}
     </section>
