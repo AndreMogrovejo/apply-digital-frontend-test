@@ -20,9 +20,9 @@ const Filters: React.FC<FiltersProps> = (props) => {
   };
 
   return (
-    <div className="flex items-center self-end px-[6%] h-[64px]">
+    <div className="flex items-center self-end px-0 sm:px-[6%] h-[64px]">
       <h1 className="text-xl font-bold text-text-primary">Genre</h1>
-      <div className="h-[22px] w-[1px] bg-gray-medium mx-6" />
+      <div className="h-[22px] w-[1px] bg-gray-medium mx-4 sm:mx-6" />
       <Dropdown
         options={["All", ...availableFilters]}
         onSelect={handleSelect}
